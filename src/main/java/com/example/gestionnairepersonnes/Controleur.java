@@ -58,8 +58,12 @@ public class Controleur implements Initializable {
      * @return le libelle de la catégorie correspondante
      */
     private String computeValue(String annee) {
-        int anneeInt = Integer.parseInt(annee);
-        return Categorie.getCategorie(anneeInt);
+        if (annee != "") {
+            int anneeInt = Integer.parseInt(annee);
+            return Categorie.getCategorie(anneeInt);
+        } else {
+            return "";
+        }
     }
 
 
