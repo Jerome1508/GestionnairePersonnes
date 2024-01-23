@@ -5,8 +5,10 @@
  */
 package com.example.gestionnairepersonnes.models;
 
+import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Cette classe permet de mémoriser les différentes catégories d'âge
@@ -46,6 +48,12 @@ public class Categorie {
         return libelle;
     }
 
+
+    @Override
+    public String toString() {
+        return this.libelle;
+    }
+
     /**
      * Calcul l'âge en fonction de l'année courrante
      * et renvoie le libelle de la categorie correspondante
@@ -68,5 +76,37 @@ public class Categorie {
         } else {
             throw new IllegalArgumentException("Cette annee de naissance ne correspond a aucune categorie");
         }
+    }
+
+    /**
+     * Lit un fichier texte contenant des catégories
+     * et crée un Objet Categorie pour chaque ligne du fichier
+     * puis les ajoute dans la liste static
+     * @param nomFichier contenant les catégories
+     */
+    public static void chargerFichierTexte (String nomFichier) {
+        // on creer la liste si elle n'est pas déjà crée
+        if (listCategorie == null) {
+            listCategorie = new ArrayList<Categorie>();
+        }
+        // On récupère les données du fichier
+        try {
+            BufferedReader lecteur = new BufferedReader(new FileReader(nomFichier));
+            String ligne;
+            while ((ligne = lecteur.readLine()) != null) {
+                int ageMini = Integer.parseInt(ligne.split(" ")[0]);
+                int ageMaxi = Integer.parseInt(ligne.split(" ")[1]);
+                String libelle = ligne.split(" ")[2];
+                listCategorie.add(new Categorie(ageMini, ageMaxi, libelle));
+            }
+            lecteur.close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // On affiche la liste sur la console
+        System.out.println("taille liste : " + listCategorie.size());
+        System.out.println(listCategorie.toString());
     }
 }
