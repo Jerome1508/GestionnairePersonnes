@@ -19,6 +19,9 @@ public class Categorie {
     private int ageMini;
     private int ageMaxi;
     private String libelle;
+
+
+
     private static ArrayList<Categorie> listCategorie;
 
     /**
@@ -38,7 +41,7 @@ public class Categorie {
      * @return le seuil inférieur de l'applicaion du taux
      */
     public boolean correspond (int age) {
-        return age >= ageMini && age <= ageMini;
+        return age >= ageMini && age <= ageMaxi;
     }
 
     /**
@@ -46,6 +49,13 @@ public class Categorie {
      */
     public String getLibelle() {
         return libelle;
+    }
+
+    /**
+     * @return la liste des catégories
+     */
+    public static ArrayList<Categorie> getListCategorie() {
+        return listCategorie;
     }
 
 

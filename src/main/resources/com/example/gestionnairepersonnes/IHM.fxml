@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.2-ea" fx:controller="com.example.gestionnairepersonnes.Controleur">
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.gestionnairepersonnes.Controleur">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -40,13 +40,13 @@
                   <Insets right="5.0" />
                </GridPane.margin>
             </Label>
-            <TextField fx:id="nomField" GridPane.columnIndex="1" />
-            <TextField fx:id="anneeField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="categorieField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <Button mnemonicParsing="false" onAction="#EnregistrerButtonClick" text="Enregistrer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <TextField fx:id="tfNom" GridPane.columnIndex="1" />
+            <TextField fx:id="tfAnnee" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="tfCategorie" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <Button mnemonicParsing="false" onAction="#actionEnregistrer" text="Enregistrer" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
          </children>
       </GridPane>
-      <ListView fx:id="personneListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
+      <ListView fx:id="lvPersonne" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <GridPane.margin>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
          </GridPane.margin>
