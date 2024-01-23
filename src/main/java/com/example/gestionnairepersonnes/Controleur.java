@@ -11,4 +11,8 @@ public class Controleur {
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
+
+    @FXML
+    private void EnregistrerButtonClick() {
+    }
 }
